@@ -1,66 +1,49 @@
-/* Set the default font and size */
 body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
-    line-height: 1.5; /* Ensure the content has nice spacing */
-    margin: 0; /* Remove any default margins */
-    padding: 0; /* Remove any default padding */
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Container for the content with max-width and centered alignment */
-.content {
-    max-width: 600px;
-    margin: 50px auto; /* Center the content horizontally */
-    padding: 20px;
-    border: 1px solid grey; /* Add a thin border around the content */
-    box-sizing: border-box; /* Ensure padding is included within the width */
+div {
+    max-width: 600px; /* Fixed missing px */
+    margin: 50px auto;
+    border: solid grey;
+    border-width: 1px;
+    padding: 20px; /* Reduced padding for better responsiveness */
 }
 
-/* Style for the title (h1) and subtitle (h2) */
-.title h1 {
+header {
     text-align: center;
+    border-bottom: solid rgb(191, 191, 191) 1px;
+}
+
+#ms {
     font-size: 52px;
-    letter-spacing: 3px; /* Add space between letters */
-    text-transform: uppercase; /* Make the text all caps */
-    margin-bottom: -5px; /* Reduce spacing between h1 and h2 */
+    letter-spacing: 3px;
+    margin-bottom: -5px;
 }
 
-.title h2 {
-    text-align: center;
-    color: #006EB6; /* Subtitle color */
-    letter-spacing: 3px; /* Add space between letters */
-    text-transform: uppercase; /* Make the text all caps */
-    margin-bottom: 12px; /* Add spacing between subtitle and content */
+#byui {
+    color: #006EB6;
+    letter-spacing: 3px;
+    margin-bottom: 1px;
 }
 
-/* Main content styling */
 main {
-    text-align: left; /* Ensure paragraphs are left-aligned */
-    line-height: 1.5; /* Increase line spacing for readability */
-    margin-bottom: 20px; /* Add space below the main content */
+    line-height: 1.5;
 }
 
-/* Ensure <em> text appears italic */
-em {
-    font-style: italic; /* Make italic explicitly for emphasis elements */
+.invisible {
+    visibility: hidden;
 }
 
-/* Style for ordered list in the main content */
-.does-list {
-    margin-left: 20px; /* Indent the list slightly */
-    padding-left: 20px; /* Add padding to the left of the list */
-    list-style-position: outside; /* Ensure the bullet points are outside */
-}
-
-/* Footer styling */
 footer {
-    text-align: center; /* Center the logo */
-    margin-top: 20px; /* Add space above the footer */
+    text-align: center; /* Centered footer content */
 }
 
-/* Logo styling */
-.logo {
-    width: 150px; /* Resize the logo to 150px */
-    display: block; /* Center the logo */
-    margin: 0 auto; /* Ensure the logo stays centered */
+img {
+    width: 150px;
+    display: block;
+    margin: 0 auto; /* Image centered */
 }
+
