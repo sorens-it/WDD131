@@ -1,45 +1,66 @@
+/* Set the default font and size */
 body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
+    line-height: 1.5; /* Ensure the content has nice spacing */
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Remove any default padding */
 }
-div {
-    max-width: 600;
-    margin: 50px auto;
-    border: solid grey;
-    border-width: 1px;
-    padding: 20px 200px 30px 200px;
+
+/* Container for the content with max-width and centered alignment */
+.content {
+    max-width: 600px;
+    margin: 50px auto; /* Center the content horizontally */
+    padding: 20px;
+    border: 1px solid grey; /* Add a thin border around the content */
+    box-sizing: border-box; /* Ensure padding is included within the width */
 }
-header {
+
+/* Style for the title (h1) and subtitle (h2) */
+.title h1 {
     text-align: center;
-    border-bottom: solid rgb(191, 191, 191) 1px;
-}
-#ms {
     font-size: 52px;
-    letter-spacing: 3px;
-    margin-bottom: -5px;
+    letter-spacing: 3px; /* Add space between letters */
+    text-transform: uppercase; /* Make the text all caps */
+    margin-bottom: -5px; /* Reduce spacing between h1 and h2 */
 }
-#byui {
-    color: #006EB6;
-    letter-spacing: 3px;
-    margin-bottom: 1px;
+
+.title h2 {
+    text-align: center;
+    color: #006EB6; /* Subtitle color */
+    letter-spacing: 3px; /* Add space between letters */
+    text-transform: uppercase; /* Make the text all caps */
+    margin-bottom: 12px; /* Add spacing between subtitle and content */
 }
+
+/* Main content styling */
 main {
-    line-height: 1.5;
+    text-align: left; /* Ensure paragraphs are left-aligned */
+    line-height: 1.5; /* Increase line spacing for readability */
+    margin-bottom: 20px; /* Add space below the main content */
 }
-.invisible{
-    visibility: hidden;
+
+/* Ensure <em> text appears italic */
+em {
+    font-style: italic; /* Make italic explicitly for emphasis elements */
 }
+
+/* Style for ordered list in the main content */
+.does-list {
+    margin-left: 20px; /* Indent the list slightly */
+    padding-left: 20px; /* Add padding to the left of the list */
+    list-style-position: outside; /* Ensure the bullet points are outside */
+}
+
+/* Footer styling */
 footer {
-    align-items: center;
-} 
-img {
-    width: 150px;
-    padding-left: 225px;
+    text-align: center; /* Center the logo */
+    margin-top: 20px; /* Add space above the footer */
 }
-.dark {
-    background-color: #333;
-    color: #f9f9f9;
-}
-.dark #byui {
-    color: rgb(127, 213, 242);
+
+/* Logo styling */
+.logo {
+    width: 150px; /* Resize the logo to 150px */
+    display: block; /* Center the logo */
+    margin: 0 auto; /* Ensure the logo stays centered */
 }
