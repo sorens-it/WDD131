@@ -13,17 +13,23 @@ div {
 }
 
 header {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    transition: background-color 0.3s, color 0.3s;
     text-align: center;
     border-bottom: solid rgb(191, 191, 191) 1px;
 }
 
 #ms {
-    font-size: 52px;
+    font-size: 50px;
     letter-spacing: 3px;
     margin-bottom: -5px;
 }
 
 #byui {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    transition: background-color 0.3s, color 0.3s;
     color: #006EB6;
     letter-spacing: 3px;
     margin-bottom: 1px;
