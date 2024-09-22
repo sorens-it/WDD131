@@ -2,14 +2,19 @@ body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
     transition: background-color 0.3s, color 0.3s;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
 }
 
 div {
-    max-width: 600px; /* Fixed missing px */
-    margin: 50px auto;
-    border: solid grey;
+    max-width: 600px; 
+    margin: 10px auto;
+    padding: 10px; 
+    border: 1px solid grey;
+    box-sizing: border-box;
     border-width: 1px;
-    padding: 20px; /* Reduced padding for better responsiveness */
+    
 }
 
 header {
@@ -21,7 +26,7 @@ header {
 }
 
 #ms {
-    font-size: 50px;
+    font-size: 52px;
     letter-spacing: 3px;
     margin-bottom: -5px;
 }
