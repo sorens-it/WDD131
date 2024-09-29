@@ -9,27 +9,35 @@
     <title>WDD131 - Soren Petersen</title>
 </head>
 <body>
-    <div>
-    <header>
-    <p id=ms>MISSION STATEMENT</p>
-    <p id="byui">BRIGHAM YOUNG UNIVERSITY-IDAHO</p>
-</header>
-<main>
-    <p><br>Brigham Young University-Idaho was founded and is supported and<br>guided by The Church of Jesus Christ of Latter-day Saints. Its mission is<br>to develop disciples of Jesus Christ who are leaders in their homes, the<br>Church, and their communities.
-<br><br><i>The university does this by:</i></p>
-<ol>
-    <li>Building testimonies of the restored gospel of Jesus Christ and<br>fostering its principles in a wholesome academic, cultural, and social<br>environment.<br><span class="invisible">-</span></li>
-    <li>Providing a high-quality education that prepares students of diverse<br>interests and abilities for lifelong learning and employment.<br><span class="invisible">-</span></li>
-    <li>Serving as many students as possible within resource constraints.<br><span class="invisible">-</span></li>
-    <li>Delivering education that is affordable for students and the Church.<br><span class="invisible">-</span></li>
-</ol>
-</main>
-<footer>
-    <img src="byui-logo_blue.webp" alt="BYUI Logo"/> 
-</footer></div>
-<select>
-    <option value="Light">Light</option><option value="Dark">Dark</option>
-</select>
+
+    <div class="content">
+        <header>
+            <h1>Mission Statement</h1>
+            <h2 id="byui">Brigham Young University-Idaho</h2>
+        </header>
+
+        <main>
+            <p>Brigham Young University-Idaho was founded and is supported and guided by The Church of Jesus Christ of Latter-day Saints. Its mission is to develop disciples of Jesus Christ who are leaders in their homes, the Church, and their communities.</p>
+            <p><em>The university does this by:</em></p>
+            <ol>
+                <li>Building testimonies of the restored gospel of Jesus Christ.</li>
+                <li>Providing a high-quality education that prepares students for lifelong learning and employment.</li>
+                <li>Serving as many students as possible within resource constraints.</li>
+                <li>Delivering education that is affordable for students and the Church.</li>
+            </ol>
+        </main>
+
+        <footer>
+            <img src="byui-logo_blue.webp" alt="BYUI Logo" id="logo">
+        </footer>
+    </div>
+
+    <!-- Theme Selector Dropdown -->
+    <select id="themeSelector">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+
+    <script src="mission.js" defer></script>
 </body>
-<script type="text/javascript" src="mission.js"></script>
 </html>

@@ -1,45 +1,66 @@
+/* Base styles */
 body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
+    background-color: #fff;
+    color: #000;
 }
-div {
-    max-width: 600px;
+
+/* Container for the content with max-width */
+.content {
+    max-width: 750px;
     margin: 50px auto;
-    border: solid grey;
-    border-width: 1px;
-    padding: 20px 200px 30px 200px;
+    padding: 20px;
+    border: 1px solid grey;
+    box-sizing: border-box;
 }
+
+/* Header styles */
 header {
     text-align: center;
-    border-bottom: solid rgb(191, 191, 191) 1px;
+    border-bottom: 1px solid rgb(191, 191, 191);
 }
-#ms {
+
+h1 {
     font-size: 52px;
     letter-spacing: 3px;
-    margin-bottom: -5px;
+    text-transform: uppercase;
 }
+
 #byui {
     color: #006EB6;
     letter-spacing: 3px;
-    margin-bottom: 1px;
 }
+
+/* Main content styles */
 main {
     line-height: 1.5;
+    text-align: left;
 }
-.invisible{
-    visibility: hidden;
-}
+
+/* Footer styles */
 footer {
-    align-items: center;
-} 
+    text-align: center;
+    margin-top: 20px;
+}
+
 img {
     width: 150px;
-    padding-left: 225px;
+    display: block;
+    margin: 0 auto;
 }
+
+/* Dark theme styles */
 .dark {
     background-color: #333;
     color: #f9f9f9;
 }
+
 .dark #byui {
-    color: rgb(127, 213, 242);
+    color: rgb(127, 213, 242); /* Lighter blue for better contrast */
+}
+
+/* Dark theme logo */
+.dark img {
+    content: url('byui-logo_white.png');
 }

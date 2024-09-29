@@ -1,14 +1,21 @@
-function setTheme() {
-    const themeValue = document.querySelector("select").value;
-    console.log("Theme" + themeValue);
-    
-    if (themeValue === "Dark"){
+// Select the theme selector dropdown element
+const themeSelector = document.querySelector("#themeSelector");
+
+// Function to change the theme
+function changeTheme() {
+    // Get the current value of the select element
+    const theme = themeSelector.value;
+
+    // If the selected theme is "dark", add the "dark" class to the body
+    if (theme === "dark") {
         document.body.classList.add("dark");
-        document.querySelector("img").setAttribute("src", "./byui-logo_white.png");
-    }
-    else {
+        document.querySelector("#logo").setAttribute("src", "byui-logo_white.png");
+    } else {
+        // Otherwise, remove the "dark" class and revert to light mode
         document.body.classList.remove("dark");
-        document.querySelector("img").setAttribute("src", "./byui-logo_blue.webp");
+        document.querySelector("#logo").setAttribute("src", "byui-logo_blue.webp");
     }
 }
-document.querySelector("select").addEventListener("change", setTheme);
+
+// Add an event listener to the select element
+themeSelector.addEventListener('change', changeTheme);
