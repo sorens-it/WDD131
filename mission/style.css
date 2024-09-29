@@ -1,60 +1,45 @@
 body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
-    transition: background-color 0.3s, color 0.3s;
-    line-height: 1.5;
-    margin: 0;
-    padding: 0;
 }
-
 div {
-    max-width: 600px; 
-    margin: 10px auto;
-    padding: 10px; 
-    border: 1px solid grey;
-    box-sizing: border-box;
+    max-width: 600px;
+    margin: 50px auto;
+    border: solid grey;
     border-width: 1px;
-    
+    padding: 20px 200px 30px 200px;
 }
-
 header {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-    transition: background-color 0.3s, color 0.3s;
     text-align: center;
     border-bottom: solid rgb(191, 191, 191) 1px;
 }
-
 #ms {
     font-size: 52px;
     letter-spacing: 3px;
     margin-bottom: -5px;
 }
-
 #byui {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-    transition: background-color 0.3s, color 0.3s;
     color: #006EB6;
     letter-spacing: 3px;
     margin-bottom: 1px;
 }
-
 main {
     line-height: 1.5;
 }
-
-.invisible {
+.invisible{
     visibility: hidden;
 }
-
 footer {
-    text-align: center; /* Centered footer content */
-}
-
+    align-items: center;
+} 
 img {
     width: 150px;
-    display: block;
-    margin: 0 auto; /* Image centered */
+    padding-left: 225px;
 }
-
+.dark {
+    background-color: #333;
+    color: #f9f9f9;
+}
+.dark #byui {
+    color: rgb(127, 213, 242);
+}
