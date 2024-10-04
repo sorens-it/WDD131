@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+
+:root {
+    --primary-color: #52489c;
+    --secondary-color: #59c3c3;
+    --accent-color: #f45b69;
+    --text-dark: #333;
+    --text-light: #ebebeb;
+    --primary-font: Arial, Helvetica, sans-serif;
+    --secondary-font: 'Mooli', sans-serif;
+}
+
+body {
+    font-family: var(--primary-font);
+    font-size: 1.2em;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-family: var(--secondary-font);
+}
+
+button#menu {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 10px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 20px;
+}
+
+figure {
+    margin: 0;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px;
+}
+
+@media (min-width: 700px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1000px) {
+    nav ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    button#menu {
+        display: none;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
