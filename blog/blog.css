@@ -1,4 +1,4 @@
-/* Global styles */
+/* Basic Styling */
 body {
     font-family: 'Helvetica', Arial, sans-serif;
     background-color: #EFC69B;
@@ -7,7 +7,6 @@ body {
     padding: 0;
 }
 
-/* Heading */
 h1 {
     font-family: 'Lora', serif;
     color: #AF1B3F;
@@ -34,7 +33,6 @@ a:hover {
     background-color: #AF1B3F;
     color: white;
     padding: 10px;
-    text-decoration: none;
 }
 
 .skiptocontent a:focus {
@@ -76,6 +74,12 @@ main {
     margin: 0 auto;
 }
 
+#articles-section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Article Styling */
 article {
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -83,43 +87,31 @@ article {
     margin-bottom: 40px;
 }
 
-/* Article details on the left */
 .article-details {
     text-align: right;
+    border-right: 2px solid #AF1B3F;
+    padding-right: 10px;
+    margin-right: 10px;
 }
 
 .article-content h2 {
     font-family: 'Lora', serif;
     color: #AF1B3F;
+    margin-top: 0;
 }
 
 article img {
+    display: block;
     max-width: 150px;
-    height: auto;
+    margin: 0 auto;
 }
 
-/* Sidebar/Filter Placeholder */
-aside {
-    background-color: #AF1B3F;
-    padding: 20px;
-    color: white;
-}
-
-/* Read More functionality */
-
-/* Initially hide the additional text */
 .more-text {
     display: none;
 }
 
-/* Style for the 'Read More' and 'Read Less' link */
 .read-more {
     color: #AF1B3F;
     font-weight: bold;
     cursor: pointer;
-}
-
-/* Hover effect for 'Read More'/'Read Less' links */
-.read-more:hover {
-    text-decoration: underline;
 }
