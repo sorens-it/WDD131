@@ -1,0 +1,93 @@
+/* General styling for body */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f2f5;
+}
+
+/* Styling for the form container */
+.credit-card-form {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 320px;
+}
+
+/* Card front styling */
+.card-front, .card-back {
+    background-color: #dfe3e6;
+    border-radius: 10px;
+    padding: 15px;
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    gap: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Positioning the front and back card layers */
+.card-front {
+    position: relative;
+    z-index: 2;
+}
+
+.card-back {
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+    width: 300px;
+    display: grid;
+    grid-template-rows: auto;
+}
+
+/* Card logo image styling */
+.card-image {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+/* Label styling for form fields */
+label {
+    font-size: 12px;
+    color: #555;
+}
+
+/* Input styling for card details */
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Styling for the submit button */
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Styling for form validation */
+input:required {
+    border-color: #d3d3d3;
+}
+input:invalid {
+    border-color: #e74c3c;
+}
