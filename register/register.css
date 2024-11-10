@@ -1,0 +1,11 @@
+.participants-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.add-participant-button {
+    grid-column: span 2;
+}
+.hide {
+    display: none;
+}
