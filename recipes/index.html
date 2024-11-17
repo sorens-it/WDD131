@@ -6,23 +6,23 @@
     <meta name="description" content="Discover delicious recipes for every occasion.">
     <meta name="author" content="Soren Petersen">
     <title>Recipe Book</title>
-    <link rel="stylesheet" href="recipes.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <script type="module" src="./main.js" defer></script>
-    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Recipe Book">
     <meta property="og:type" content="website">
     <meta property="og:description" content="Discover delicious recipes for every occasion.">
     <meta property="og:image" content="images/social-preview.jpg">
     <meta property="og:url" content="https://yourwebsite.com">
-    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <img src="images/recipe-book.png" alt="Recipe Book Logo">
         <h1>Recipe Book</h1>
     </header>
+
+    <!-- Main Content -->
     <main>
         <!-- Search Form -->
         <form action="#" method="GET">
@@ -30,17 +30,38 @@
             <input type="text" id="search" name="search" placeholder="Find a recipe...">
             <button type="submit">Search</button>
         </form>
-        <!-- Recipe Section -->
-        <section id="recipes" class="recipes">
-            <!-- Recipes will be dynamically loaded here by JavaScript -->
+
+        <!-- Recipes Section -->
+        <section class="recipes">
+            <!-- Example Recipe -->
+            <article>
+                <img src="images/example-recipe.jpg" alt="Delicious Recipe">
+                <h2>Example Recipe</h2>
+                <span
+                    class="rating"
+                    role="img"
+                    aria-label="Rating: 4 out of 5 stars"
+                >
+                    <span aria-hidden="true" class="icon-star">⭐</span>
+                    <span aria-hidden="true" class="icon-star">⭐</span>
+                    <span aria-hidden="true" class="icon-star">⭐</span>
+                    <span aria-hidden="true" class="icon-star">⭐</span>
+                    <span aria-hidden="true" class="icon-star-empty">☆</span>
+                </span>
+            </article>
         </section>
     </main>
+
+    <!-- Footer Section -->
     <footer>
-        <p>Recipe icons created by 
-            <a href="https://www.flaticon.com/free-icons/recipe" title="recipe icons">Freepik - Flaticon</a>
+        <p>
+            Recipe icons created by 
+            <a href="https://www.flaticon.com/free-icons/recipe" title="recipe icons">
+                Freepik - Flaticon
+            </a>
         </p>
         <div class="social">
-            <!-- Social Media Icons -->
+            <!-- Social media icons provided under CC from https://www.iconfinder.com/AlfredoCreates -->
             <a href="#"><img src="images/instagram_icon.svg" alt="Instagram"></a>
             <a href="#"><img src="images/youtube_icon.svg" alt="YouTube"></a>
             <a href="#"><img src="images/pinterest_icon.svg" alt="Pinterest"></a>
