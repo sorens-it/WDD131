@@ -1,29 +1,31 @@
 /* Global Styles */
-@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap");
-
 :root {
     --primary-color: #1B98E0;
     --secondary-color: #59c3c3;
     --text-dark: #333;
     --text-light: #ebebeb;
     --primary-font: Arial, Helvetica, sans-serif;
-    --secondary-font: "Amatic SC";
+    --secondary-font: "Amatic SC", cursive;
 }
 
-/* Basic Styling */
-body {
-    font-family: var(--primary-font);
+* {
     margin: 0;
     padding: 0;
-    color: var(--text-dark);
-    background-color: #f4f4f4;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: var(--primary-font);
+    background-color: #f4f4f4;
+    color: var(--text-dark);
+}
+
+/* Header Styles */
 header {
     text-align: center;
     background-color: var(--primary-color);
-    color: var(--text-light);
     padding: 1em;
+    color: var(--text-light);
 }
 
 header img {
@@ -34,27 +36,44 @@ header img {
 header h1 {
     display: inline-block;
     margin-left: 1em;
-    font-family: var(--secondary-font), sans-serif;
     font-size: 2em;
+    font-family: var(--secondary-font), sans-serif;
 }
 
-/* Main Content */
-main {
-    padding: 1em;
+header p {
+    font-size: 1.2em;
+    margin-top: 0.5em;
+    color: var(--text-light);
 }
 
-/* Search Form */
+/* Search Form Styles */
+#search-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+
 form {
-    text-align: center;
-    margin-bottom: 2em;
+    display: flex;
+    max-width: 600px;
+    width: 100%;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    padding: 0.5em;
+    background-color: white;
 }
 
 form input {
+    flex-grow: 1;
     padding: 0.5em;
-    margin-right: 0.5em;
     border: 1px solid var(--secondary-color);
     border-radius: 5px;
     font-size: 1em;
+}
+
+form input::placeholder {
+    font-style: italic;
+    color: #aaa;
 }
 
 form button {
@@ -63,35 +82,112 @@ form button {
     color: var(--text-light);
     border: none;
     border-radius: 5px;
-    cursor: pointer;
     font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/* Recipes Section */
+form button:hover {
+    background-color: #44b1b1;
+}
+
+/* Recipe Section Styles */
 .recipes {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 2em;
 }
 
-article {
-    margin: 1em 0;
-    text-align: center;
-    max-width: 100%;
+.recipe {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 2em;
+    max-width: 400px;
+    text-align: left;
+    width: 90%;
 }
 
-article img {
-    max-width: 100%;  /* Ensure images are responsive */
+.recipe img {
+    display: block;
+    width: 100%;
     height: auto;
-    border-radius: 8px;
+    object-fit: cover;
+}
+
+.recipe__tags {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0.5em;
+    gap: 0.5em;
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    font-size: 0.9em;
+}
+
+.recipe__tags li {
+    background-color: var(--primary-color);
+    border-radius: 15px;
+    padding: 0.3em 0.7em;
+    font-size: 0.85em;
+}
+
+.recipe__tags li:hover {
+    background-color: #166aa6;
+}
+
+.recipe h2 {
+    margin: 1em 0 0.5em;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.recipe a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.recipe a:hover {
+    text-decoration: underline;
+}
+
+.recipe__ratings {
+    display: flex;
+    justify-content: center;
+    margin: 0.5em 0;
 }
 
 .rating {
-    margin-top: 0.5em;
     font-size: 1.2em;
 }
 
-/* Footer */
+.icon-star {
+    color: #ffd700;
+}
+
+.icon-star-empty {
+    color: #ccc;
+}
+
+.recipe__description {
+    padding: 1em;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+/* No Results Message */
+#no-results {
+    font-size: 1.2em;
+    color: var(--primary-color);
+    text-align: center;
+    margin-top: 2em;
+}
+
+/* Footer Styles */
 footer {
     background-color: var(--primary-color);
     color: var(--text-light);
@@ -106,90 +202,30 @@ footer .social a {
 
 footer .social img {
     max-width: 20px;
+    transition: transform 0.3s ease;
 }
 
-/* Responsive Styles for Small Screens (Mobile-first) */
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 1.5em;
-    }
-
-    .recipes {
-        padding: 0;
-    }
-
-    article {
-        width: 100%;
-        margin: 0 0 1em 0;
-    }
-
-    .rating {
-        font-size: 1em;
-    }
-
-    footer p {
-        font-size: 0.7em;
-    }
-
-    footer .social img {
-        max-width: 18px;
-    }
+footer .social img:hover {
+    transform: scale(1.2);
 }
 
-/* Responsive Styles for Medium Screens (Tablet and Above) */
+/* Responsive Styles */
 @media (min-width: 600px) {
-    main {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
     .recipes {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
     }
 
-    article {
+    .recipe {
         margin: 1em;
-        width: 45%; /* Ensures articles take up less space on wider screens */
-    }
-
-    .rating {
-        font-size: 1.2em;
+        width: 45%;
     }
 }
 
-/* Responsive Styles for Larger Screens (Desktop) */
 @media (min-width: 960px) {
     body {
         max-width: 960px;
         margin: 0 auto;
-    }
-
-    main {
-        padding: 2em;
-    }
-
-    .recipes {
-        flex-direction: row;
-        justify-content: space-evenly;
-    }
-
-    article {
-        margin: 1.5em;
-        width: 30%; /* Ensures articles take up even less space on wider screens */
-    }
-
-    footer {
-        padding: 2em;
-    }
-
-    footer p {
-        font-size: 0.8em;
-    }
-
-    footer .social img {
-        max-width: 22px;
     }
 }

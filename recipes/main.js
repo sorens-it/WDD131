@@ -1,75 +1,112 @@
-import { recipes } from './recipes.mjs';
+// Import recipes array from the recipes.mjs module
+import recipes from './recipes.mjs';
 
-document.addEventListener('DOMContentLoaded', () => {
-    const recipesSection = document.querySelector('.recipes');
+// Function to generate a random number between 0 and the max value (exclusive)
+function getRandomNumber(max) {
+    return Math.floor(Math.random() * max);
+}
 
-    // Helper function to create recipe card HTML
-    const createRecipeCard = (recipe) => {
-        const article = document.createElement('article');
-        article.classList.add('recipe-card'); // Added a class for additional styling if needed
+// Function to select a random recipe from the recipes array
+function getRandomRecipe() {
+    const randomIndex = getRandomNumber(recipes.length);
+    return recipes[randomIndex];
+}
 
-        article.innerHTML = `
-            <img src="${recipe.image}" alt="${recipe.title}">
-            <h2>${recipe.title}</h2>
-            <span class="rating" role="img" aria-label="Rating: ${recipe.rating} out of 5 stars">
-                ${'⭐'.repeat(recipe.rating)}${'☆'.repeat(5 - recipe.rating)}
-            </span>
-            <p class="description">${recipe.description || "No description available."}</p>
-            <button class="details-btn" data-id="${recipe.id}">View Details</button>
-        `;
+// Function to generate the HTML for a recipe
+function generateRecipeHTML(recipe) {
+    return `
+        <article class="recipe">
+            <img src="${recipe.image}" alt="${recipe.name}" class="recipe-image">
+            <h2>${recipe.name}</h2>
+            <p class="recipe-description">${recipe.description}</p>
+            <p><strong>Author:</strong> ${recipe.author || 'Unknown'}</p>
+            <p><strong>Cook Time:</strong> ${recipe.cookTime || 'N/A'}</p>
+            <div class="recipe__ratings">
+                ${generateRatingHTML(recipe.rating)}
+            </div>
+            <ul class="recipe__tags">${generateTagsHTML(recipe.tags)}</ul>
+            <h3>Ingredients:</h3>
+            <ul class="recipe__ingredients">
+                ${generateIngredientsHTML(recipe.recipeIngredient)}
+            </ul>
+            <h3>Instructions:</h3>
+            <ol class="recipe__instructions">
+                ${generateInstructionsHTML(recipe.recipeInstructions)}
+            </ol>
+        </article>
+    `;
+}
 
-        return article;
-    };
+// Function to generate HTML for recipe tags
+function generateTagsHTML(tags) {
+    if (!tags || tags.length === 0) return '<li>No tags available</li>';
+    return tags.map(tag => `<li>${tag}</li>`).join('');
+}
 
-    // Dynamically load all recipes
-    recipes.forEach((recipe) => {
-        const recipeCard = createRecipeCard(recipe);
-        recipesSection.appendChild(recipeCard);
-    });
+// Function to generate HTML for recipe ingredients
+function generateIngredientsHTML(ingredients) {
+    if (!ingredients || ingredients.length === 0) return '<li>No ingredients listed</li>';
+    return ingredients.map(ingredient => `<li>${ingredient}</li>`).join('');
+}
 
-    // Add interactivity to "View Details" buttons
-    recipesSection.addEventListener('click', (event) => {
-        if (event.target.classList.contains('details-btn')) {
-            const recipeId = event.target.getAttribute('data-id');
-            const recipe = recipes.find((r) => r.id === recipeId);
+// Function to generate HTML for recipe instructions
+function generateInstructionsHTML(instructions) {
+    if (!instructions || instructions.length === 0) return '<li>No instructions available</li>';
+    return instructions.map((instruction, index) => `<li>${index + 1}. ${instruction}</li>`).join('');
+}
 
-            if (recipe) {
-                displayRecipeDetails(recipe);
-            } else {
-                alert("Recipe not found!");
-            }
-        }
-    });
+// Function to generate HTML for recipe ratings
+function generateRatingHTML(rating) {
+    const fullStar = '<span class="icon-star" aria-label="star">★</span>';
+    const emptyStar = '<span class="icon-star-empty" aria-label="no star">☆</span>';
+    return fullStar.repeat(Math.floor(rating)) + emptyStar.repeat(5 - Math.floor(rating));
+}
 
-    // Function to display recipe details (placeholder for now)
-    const displayRecipeDetails = (recipe) => {
-        alert(`
-            Recipe: ${recipe.title}
-            Ingredients: ${recipe.ingredients.join(', ')}
-            Instructions: ${recipe.instructions}
-        `);
-    };
+// Function to display all recipes
+function displayAllRecipes() {
+    const recipeContainer = document.querySelector('#recipe-container');
+    recipeContainer.innerHTML = recipes
+        .map(recipe => generateRecipeHTML(recipe))
+        .join('');
+}
 
-    // Search functionality (optional feature for better usability)
-    const searchForm = document.querySelector('form');
+// Initialize the app to display all recipes and handle search functionality
+function init() {
+    const searchForm = document.querySelector('#search-form');
     const searchInput = document.querySelector('#search');
+    const recipeContainer = document.querySelector('#recipe-container');
 
-    searchForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const query = searchInput.value.trim().toLowerCase();
+    // Display all recipes on page load
+    displayAllRecipes();
 
-        const filteredRecipes = recipes.filter((recipe) =>
-            recipe.title.toLowerCase().includes(query)
-        );
+    // Listen for search submissions
+    searchForm.addEventListener('submit', event => {
+        event.preventDefault(); // Prevent page reload on form submission
+        const query = searchInput.value.toLowerCase().trim(); // Get search query
 
-        recipesSection.innerHTML = ''; // Clear current recipes
+        // Filter recipes based on search query
+        const filteredRecipes = recipes.filter(recipe => {
+            // Search across various fields (name, description, author, cookTime, tags, ingredients)
+            return (
+                recipe.name.toLowerCase().includes(query) ||
+                recipe.description.toLowerCase().includes(query) ||
+                recipe.author.toLowerCase().includes(query) ||
+                recipe.cookTime.toLowerCase().includes(query) ||
+                (recipe.tags && recipe.tags.some(tag => tag.toLowerCase().includes(query))) ||
+                (recipe.recipeIngredient && recipe.recipeIngredient.some(ingredient => ingredient.toLowerCase().includes(query)))
+            );
+        });
+
+        // Display filtered recipes or show a "No results" message
         if (filteredRecipes.length > 0) {
-            filteredRecipes.forEach((recipe) => {
-                const recipeCard = createRecipeCard(recipe);
-                recipesSection.appendChild(recipeCard);
-            });
+            recipeContainer.innerHTML = filteredRecipes
+                .map(recipe => generateRecipeHTML(recipe))
+                .join('');
         } else {
-            recipesSection.innerHTML = '<p>No recipes found.</p>';
+            recipeContainer.innerHTML = '<p>No recipes match your search criteria.</p>';
         }
     });
-});
+}
+
+// Listen for the DOMContentLoaded event to ensure the DOM is ready before running the script
+window.addEventListener('DOMContentLoaded', init);

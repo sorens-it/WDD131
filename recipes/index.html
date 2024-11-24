@@ -6,66 +6,77 @@
     <meta name="description" content="Discover delicious recipes for every occasion.">
     <meta name="author" content="Soren Petersen">
     <title>Recipe Book</title>
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="recipes.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Recipe Book">
     <meta property="og:type" content="website">
     <meta property="og:description" content="Discover delicious recipes for every occasion.">
     <meta property="og:image" content="images/social-preview.jpg">
     <meta property="og:url" content="https://yourwebsite.com">
+
+    <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
 </head>
+
 <body>
     <!-- Header Section -->
     <header>
-        <img src="images/recipe-book.png" alt="Recipe Book Logo">
-        <h1>Recipe Book</h1>
+        <div class="header-container">
+            <img src="images/recipe-book.png" alt="Recipe Book Logo" class="header-logo">
+            <h1>Recipe Book</h1>
+            <p class="header-tagline">Discover random recipes or search for your favorites!</p>
+        </div>
     </header>
 
     <!-- Main Content -->
     <main>
-        <!-- Search Form -->
-        <form action="#" method="GET">
-            <label for="search">Search Recipes:</label>
-            <input type="text" id="search" name="search" placeholder="Find a recipe...">
-            <button type="submit">Search</button>
-        </form>
+        <!-- Search Form Section -->
+        <section id="search-section" class="search-section">
+            <form id="search-form" action="#" method="GET" class="search-form">
+                <label for="search" class="search-label">Search Recipes:</label>
+                <input 
+                    type="text" 
+                    id="search" 
+                    name="search" 
+                    placeholder="Find a recipe..." 
+                    aria-label="Search recipes by name, ingredients, or tags" 
+                    class="search-input">
+                <button type="submit" id="search-button" class="search-button">Search</button>
+            </form>
+        </section>
 
         <!-- Recipes Section -->
-        <section class="recipes">
-            <!-- Example Recipe -->
-            <article>
-                <img src="images/example-recipe.jpg" alt="Delicious Recipe">
-                <h2>Example Recipe</h2>
-                <span
-                    class="rating"
-                    role="img"
-                    aria-label="Rating: 4 out of 5 stars"
-                >
-                    <span aria-hidden="true" class="icon-star">⭐</span>
-                    <span aria-hidden="true" class="icon-star">⭐</span>
-                    <span aria-hidden="true" class="icon-star">⭐</span>
-                    <span aria-hidden="true" class="icon-star">⭐</span>
-                    <span aria-hidden="true" class="icon-star-empty">☆</span>
-                </span>
-            </article>
+        <section id="recipe-container" class="recipes">
+            <!-- Recipes will be dynamically injected here by JavaScript -->
+        </section>
+
+        <!-- Search Results Section (for dynamically displaying filtered recipes) -->
+        <section id="search-results" class="search-results">
+            <!-- Filtered recipe results will be displayed here -->
         </section>
     </main>
 
     <!-- Footer Section -->
     <footer>
-        <p>
-            Recipe icons created by 
-            <a href="https://www.flaticon.com/free-icons/recipe" title="recipe icons">
-                Freepik - Flaticon
-            </a>
-        </p>
-        <div class="social">
-            <!-- Social media icons provided under CC from https://www.iconfinder.com/AlfredoCreates -->
-            <a href="#"><img src="images/instagram_icon.svg" alt="Instagram"></a>
-            <a href="#"><img src="images/youtube_icon.svg" alt="YouTube"></a>
-            <a href="#"><img src="images/pinterest_icon.svg" alt="Pinterest"></a>
+        <div class="footer-container">
+            <p>
+                Recipe icons created by 
+                <a href="https://www.flaticon.com/free-icons/recipe" title="recipe icons">Freepik - Flaticon</a>
+            </p>
+            <div class="social">
+                <!-- Social Media Links -->
+                <a href="#" aria-label="Instagram"><img src="images/instagram_icon.svg" alt="Instagram"></a>
+                <a href="#" aria-label="YouTube"><img src="images/youtube_icon.svg" alt="YouTube"></a>
+                <a href="#" aria-label="Pinterest"><img src="images/pinterest_icon.svg" alt="Pinterest"></a>
+            </div>
         </div>
     </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js" type="module"></script>
 </body>
 </html>
