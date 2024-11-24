@@ -59,7 +59,16 @@ function generateInstructionsHTML(instructions) {
 function generateRatingHTML(rating) {
     const fullStar = '<span class="icon-star" aria-label="star">★</span>';
     const emptyStar = '<span class="icon-star-empty" aria-label="no star">☆</span>';
-    return fullStar.repeat(Math.floor(rating)) + emptyStar.repeat(5 - Math.floor(rating));
+    // Ensure that ratings are rounded to a number between 0 and 5
+    const ratingCount = Math.floor(rating) || 0;
+    return fullStar.repeat(ratingCount) + emptyStar.repeat(5 - ratingCount);
+}
+
+// Function to display a random recipe
+function displayRandomRecipe() {
+    const randomRecipe = getRandomRecipe();
+    const randomRecipeContainer = document.querySelector('#random-recipe');
+    randomRecipeContainer.innerHTML = generateRecipeHTML(randomRecipe);
 }
 
 // Function to display all recipes
@@ -70,42 +79,48 @@ function displayAllRecipes() {
         .join('');
 }
 
-// Initialize the app to display all recipes and handle search functionality
+// Function to filter recipes based on search query
+function filterRecipes(event) {
+    event.preventDefault();
+    const searchInput = document.querySelector('#search').value.toLowerCase();
+    const recipeContainer = document.querySelector('#recipe-container');
+
+    if (!searchInput) {
+        // If the search input is empty, reset to displaying all recipes
+        displayAllRecipes();
+        return;
+    }
+
+    const filteredRecipes = recipes.filter(recipe => {
+        return (
+            recipe.name.toLowerCase().includes(searchInput) ||
+            recipe.description.toLowerCase().includes(searchInput) ||
+            (recipe.tags && recipe.tags.some(tag => tag.toLowerCase().includes(searchInput))) ||
+            (recipe.recipeIngredient && recipe.recipeIngredient.some(ingredient => ingredient.toLowerCase().includes(searchInput)))
+        );
+    });
+
+    if (filteredRecipes.length > 0) {
+        recipeContainer.innerHTML = filteredRecipes
+            .map(recipe => generateRecipeHTML(recipe))
+            .join('');
+    } else {
+        recipeContainer.innerHTML = '<p>No recipes match your search criteria.</p>';
+    }
+}
+
+// Initialize the app to display a random recipe, all recipes, and handle search functionality
 function init() {
     const searchForm = document.querySelector('#search-form');
-    const searchInput = document.querySelector('#search');
-    const recipeContainer = document.querySelector('#recipe-container');
+
+    // Display a random recipe on page load
+    displayRandomRecipe();
 
     // Display all recipes on page load
     displayAllRecipes();
 
     // Listen for search submissions
-    searchForm.addEventListener('submit', event => {
-        event.preventDefault(); // Prevent page reload on form submission
-        const query = searchInput.value.toLowerCase().trim(); // Get search query
-
-        // Filter recipes based on search query
-        const filteredRecipes = recipes.filter(recipe => {
-            // Search across various fields (name, description, author, cookTime, tags, ingredients)
-            return (
-                recipe.name.toLowerCase().includes(query) ||
-                recipe.description.toLowerCase().includes(query) ||
-                recipe.author.toLowerCase().includes(query) ||
-                recipe.cookTime.toLowerCase().includes(query) ||
-                (recipe.tags && recipe.tags.some(tag => tag.toLowerCase().includes(query))) ||
-                (recipe.recipeIngredient && recipe.recipeIngredient.some(ingredient => ingredient.toLowerCase().includes(query)))
-            );
-        });
-
-        // Display filtered recipes or show a "No results" message
-        if (filteredRecipes.length > 0) {
-            recipeContainer.innerHTML = filteredRecipes
-                .map(recipe => generateRecipeHTML(recipe))
-                .join('');
-        } else {
-            recipeContainer.innerHTML = '<p>No recipes match your search criteria.</p>';
-        }
-    });
+    searchForm.addEventListener('submit', filterRecipes);
 }
 
 // Listen for the DOMContentLoaded event to ensure the DOM is ready before running the script

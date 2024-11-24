@@ -179,6 +179,32 @@ form button:hover {
     line-height: 1.5;
 }
 
+/* Random Recipe Section */
+#random-recipe {
+    margin-top: 2em;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    max-width: 400px;
+    width: 90%;
+    text-align: left;
+}
+
+#random-recipe img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+#random-recipe h2 {
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 1em;
+}
+
 /* No Results Message */
 #no-results {
     font-size: 1.2em;
