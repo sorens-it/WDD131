@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital@1&family=Labrada&display=swap');
+
+:root {
+    /* change the values below to your colors from your palette */
+    --primary-color: #86B05F;
+    --secondary-color: #FBFAD2;
+    --accent1-color: #2E4625;
+    --accent2-color: #8DAD67;
+
+    /* change the values below to your chosen font(s) */
+    --heading-font: "Exo 2", Helvetica, fantasy;
+    --paragraph-font: Labrada, Lato, Verdana, monospace;
+
+    /* these colors below should be chosen from among your palette colors above */
+    --headline-color-on-white: #86B05F;
+    /* headlines on a white background */
+    --headline-color-on-color: #FBFAD2;
+    /* headlines on a colored background */
+    --paragraph-color-on-white: #2E4625;
+    /* paragraph text on a white background */
+    --paragraph-color-on-color: #FBFAD2;
+    /* paragraph text on a colored background */
+    --paragraph-background-color: #2E4625;
+    --nav-link-color: #2E4625;
+    --nav-background-color: #86B05F;
+    --nav-hover-link-color: #FBFAD2;
+    --nav-hover-background-color: #2E4625;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Exo 2", Helvetica, fantasy;
+}
+
+p {
+    font-family: var(--paragraph-font);
+    color: var(--paragraph-color-on-white);
+    padding: 1em;
+}
+
+.logo {
+    display: inline-block;
+}
+
+@media (min-width: 600px) {
+    .logo {
+        margin-bottom: 0rem;
+    }
+}
+
+.site-header {
+    position: relative;
+    background-color: #FBFAD2;
+}
+
+@media (min-width: 600px) {
+    .site-header-wrapper {
+        text-align: center;
+    }
+}
+
+/* Navigation Bar */
+
+nav {
+    background-color: #86B05F;
+    line-height: 3em;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+nav {
+    list-style-type: none;
+}
+
+nav a {
+    padding: 1em;
+    min-width: 120px;
+    text-decoration: none;
+    padding: 8px;
+
+}
+
+nav a:link,
+nav a:visited {
+    color: #2E4625;
+}
+
+nav a:hover {
+    color: #FBFAD2;
+    background-color: #2E4625;
+}
+
+* {
+    box-sizing: border-box
+}
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    padding-top: 2rem;
+}
+
+/* Hide the images by default */
+
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons */
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Number text (1/3 etc) */
+
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* The dots/bullets/indicators */
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.grid-title {
+    text-align: center;
+}
+
+/* Home Grid */
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+}
+
+.home-grid {
+    text-align: center;
+}
+
+.card-img {
+    width: 65%;
+    margin: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.photo-one {
+    grid-column: 2/4;
+    grid-row: 2/3;
+}
+
+.photo-two {
+    grid-column: 5/7;
+    grid-row: 2/3;
+}
+
+.photo-three {
+    grid-column: 8/10;
+    grid-row: 2/3;
+}
+
+.photo-four {
+    grid-column: 11/13;
+    grid-row: 2/3;
+}
+
+.photo-five {
+    grid-column: 2/4;
+    grid-row: 5/3;
+}
+
+.photo-six {
+    grid-column: 5/7;
+    grid-row: 5/3;
+}
+
+.photo-seven {
+    grid-column: 8/10;
+    grid-row: 5/3;
+}
+
+.photo-eight {
+    grid-column: 11/13;
+    grid-row: 5/3;
+}
+
+/* Home Message */
+p.colored {
+    background-color: #2E4625;
+    color: var(--paragraph-color-on-color);
+}
+
+.cover-title {
+    text-align: center;
+}
+
+.home-msg {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8em;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* About Page */
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heatp {
+    float: left;
+    width: 300px;
+}
+
+.aboutus {
+    width: 1000px;
+    padding: 50px;
+    margin: 20px;
+    background-color: #2E4625;
+
+}
+
+.merch {
+    float: right;
+    width: 300px;
+}
+
+/* Order Form */
+
+.row {
+    display: -ms-flexbox;
+    /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap;
+    /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
+}
+
+.col-25 {
+    -ms-flex: 25%;
+    /* IE10 */
+    flex: 25%;
+}
+
+.col-50 {
+    -ms-flex: 50%;
+    /* IE10 */
+    flex: 50%;
+}
+
+.col-75 {
+    -ms-flex: 75%;
+    /* IE10 */
+    flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+    padding: 0 16px;
+}
+
+.container {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+
+input[type=text] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.icon-container {
+    margin-bottom: 20px;
+    padding: 7px 0;
+    font-size: 24px;
+}
+
+.btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+span.price {
+    float: right;
+    color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+    .row {
+        flex-direction: column-reverse;
+    }
+
+    .col-25 {
+        margin-bottom: 20px;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #86B05F;
+    margin-top: 200px;
+    padding: 25px 50px;
+    line-height: 1em;
+    text-align: left;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.p3 {
+    color: #2E4625;
+}
+
+footer .social img {
+    padding-top: 15px;
+}
+
+.hyper,
+a:hover {
+    text-decoration: none
+}
+
+footer {
+    background-color: #86B05F;
+    padding: 25px 50px;
+    margin-top: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
